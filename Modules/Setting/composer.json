@@ -1,0 +1,21 @@
+{
+    "name": "platform/setting",
+    "description": "The Platform setting module",
+    "authors": [
+        {
+            "name": "Hussam Alnaame",
+            "email": "prg.hussam@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {}
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Setting\\": ""
+        }
+    }
+}

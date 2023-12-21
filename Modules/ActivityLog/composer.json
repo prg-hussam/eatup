@@ -1,0 +1,25 @@
+{
+    "name": "platform/activitylog",
+    "description": "",
+    "authors": [
+        {
+            "name": "Hussam Alnaame",
+            "email": "prg.hussam@gmail.com"
+        },
+        {
+            "name": "Hussam Alnaame",
+            "email": "prg.hussam@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {}
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\ActivityLog\\": ""
+        }
+    }
+}

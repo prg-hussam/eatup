@@ -1,0 +1,13 @@
+{
+    "name": "Dashboard",
+    "alias": "dashboard",
+    "description": "",
+    "keywords": [],
+    "priority": 1,
+    "providers": [
+        "Modules\\Dashboard\\Providers\\DashboardServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

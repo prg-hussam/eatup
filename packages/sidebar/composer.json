@@ -1,0 +1,26 @@
+{
+  "name": "prgayman/laravel-sidebar",
+  "description": "A sidebar builder for Laravel",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ayman Alaiwah",
+      "email": "aymanalaiwah.dev@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Prgayman\\Sidebar\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Prgayman\\Sidebar\\SidebarServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "preferred-install": "dist"
+  }
+}

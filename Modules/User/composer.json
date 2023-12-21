@@ -1,0 +1,21 @@
+{
+    "name": "platform/user",
+    "description": "The Platform user module",
+    "authors": [
+        {
+            "name": "Hussam Alnaame",
+            "email": "prg.hussam@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {}
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\User\\": ""
+        }
+    }
+}

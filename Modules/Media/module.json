@@ -1,0 +1,7 @@
+{
+    "name": "Media",
+    "alias": "media",
+    "description": "The Platform Media Module.",
+    "priority": 80,
+    "providers": []
+}

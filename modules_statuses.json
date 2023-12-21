@@ -1,0 +1,9 @@
+{
+    "Core": true,
+    "Support": true,
+    "Dashboard": true,
+    "Setting": true,
+    "User": true,
+    "Media": true,
+    "ActivityLog": true
+}

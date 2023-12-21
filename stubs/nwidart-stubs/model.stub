@@ -1,0 +1,10 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Modules\Support\Eloquent\Model;
+
+class $CLASS$ extends Model
+{
+
+}

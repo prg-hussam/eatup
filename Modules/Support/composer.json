@@ -1,0 +1,21 @@
+{
+    "name": "platform/support",
+    "description": "The Platform Support Module.",
+    "authors": [
+        {
+            "name": "Hussam Alnaame",
+            "email": "prg.hussam@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {}
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Support\\": ""
+        }
+    }
+}

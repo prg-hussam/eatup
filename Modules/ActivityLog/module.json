@@ -1,0 +1,11 @@
+{
+    "name": "ActivityLog",
+    "alias": "activitylog",
+    "description": "",
+    "keywords": [],
+    "priority": 900,
+    "providers": [],
+    "aliases": {},
+    "files": ["helpers.php"],
+    "requires": []
+}

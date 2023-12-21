@@ -1,0 +1,15 @@
+{
+    "name": "platform/media",
+    "description": "The Platform Media Module.",
+    "authors": [
+        {
+            "name": "Hussam Alnaame",
+            "email": "prg.hussam@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\Media\\": ""
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "name": "Support",
+    "alias": "support",
+    "description": "",
+    "keywords": [],
+    "priority": 150,
+    "providers": [],
+    "aliases": {},
+    "files": [
+        "helpers.php"
+    ],
+    "requires": []
+}

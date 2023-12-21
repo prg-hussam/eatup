@@ -1,0 +1,5 @@
+<?php
+
+return [
+    'admin.$LOWER_NAME$' => ['index', 'create', 'edit', 'destroy'],
+];

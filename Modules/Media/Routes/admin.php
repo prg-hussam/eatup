@@ -15,4 +15,4 @@ Route::controller(MediaController::class)
         Route::put('{id}/update', 'update')->name('update')->middleware('can:admin.media.create');
     });
 
-Route::get('file-manager', FileManagerController::class)->name('dmin.file_manager.index')->middleware('can:admin.media.index');
+Route::get('file-manager', FileManagerController::class)->name('file_manager.index')->middleware('can:admin.media.index');

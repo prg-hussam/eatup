@@ -18,7 +18,7 @@ trait HasCrudActions
      *
      * @return \Inertia\Response
      */
-    public function index()
+    public function index(): Response
     {
         $records = app(Pipeline::class)
             ->send($this->model::query())
@@ -33,9 +33,13 @@ trait HasCrudActions
             ->paginate(Platform::paginate())
             ->withQueryString();
 
-        return Inertia::render($this->getViewPrefix() . "/{$this->component}/Index", array_merge([
-            'records' => $this->getResource('index')::collection($records),
-        ], $this->getData('index')));
+        return Inertia::render(
+            $this->getViewPrefix() . "/{$this->component}/Index",
+            [
+                'records' => $this->getResource('index')::collection($records),
+                ...$this->getData('index')
+            ],
+        );
     }
 
     /**
@@ -76,6 +80,7 @@ trait HasCrudActions
      */
     public function store(): RedirectResponse
     {
+        // dd($this->getRequest('store')->all());
         $entity = $this->getModel()->create($this->getRequest('store')->all());
 
         if ($this->activityLogEnabled()) {
@@ -106,7 +111,7 @@ trait HasCrudActions
      */
     public function edit($id)
     {
-        $entity = $this->getEntity($id);
+        $entity = $this->getEntity($id, $this->loadRelationsOnEdit ?? false);
 
         return Inertia::render($this->getViewPrefix() . "/{$this->component}/Edit", [
             'tabs' => TabManager::get($this->getModel()->getTable()),
@@ -125,6 +130,7 @@ trait HasCrudActions
     {
         $entity = $this->getEntity($id);
         $request = $this->getRequest('update');
+
         $oldAttributes = getModelAttributesForActivity($entity, $this->fillableActivityLog ?? []);
 
         $entity->update($request->all());
@@ -158,7 +164,13 @@ trait HasCrudActions
     public function destroy(string $ids): void
     {
         $model = $this->getModel();
+        $conditions = $this->getDestroyConditions();
         $model->withoutGlobalScope("active")
+            ->when(count($conditions) > 0, function ($query) use ($conditions) {
+                foreach ($conditions as $condition) {
+                    $query->where(...$condition);
+                }
+            })
             ->whereIn($model->getKeyName(), explode(',', $ids))
             ->each(function ($entity) {
                 if ($entity->delete() && $this->activityLogEnabled()) {
@@ -317,7 +329,11 @@ trait HasCrudActions
             return [];
         }
 
-        return $this->with[$action] ?? $this->with;
+        if (isset($this->with[$action])) {
+            return $this->with[$action];
+        }
+
+        return isset($this->with[0]) ? $this->with : [];
     }
 
     /**
@@ -366,5 +382,15 @@ trait HasCrudActions
         }
 
         return lcfirst(class_basename($this->model));
+    }
+
+    /**
+     * Get destroy conditions
+     *
+     * @return array
+     */
+    protected function getDestroyConditions(): array
+    {
+        return $this->destroyConditions ?? [];
     }
 }

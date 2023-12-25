@@ -1,0 +1,11 @@
+{
+    "name": "Localization",
+    "alias": "localization",
+    "description": "",
+    "keywords": [],
+    "priority": 10,
+    "providers": [
+        "Modules\\Localization\\Providers\\LocalizationServiceProvider"
+    ],
+    "files": []
+}

@@ -62,13 +62,13 @@ class RouteServiceProvider extends ServiceProvider
                 }
             });
 
-            // foreach (config('platform.modules.core.config.routes.api') as $config) {
-            //     $this->mapApiRoutes(
-            //         "{$module->getPath()}/Routes/{$config['file']}",
-            //         "Modules\\{$module->getName()}\\Http\\Controllers\\{$config['namespace']}",
-            //         $config
-            //     );
-            // }
+            foreach (config('platform.modules.core.config.routes.api') as $config) {
+                $this->mapApiRoutes(
+                    "{$module->getPath()}/Routes/{$config['file']}",
+                    "Modules\\{$module->getName()}\\Http\\Controllers\\{$config['namespace']}",
+                    $config
+                );
+            }
         }
     }
 

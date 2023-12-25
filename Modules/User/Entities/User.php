@@ -70,6 +70,8 @@ class User extends Authenticatable
         'current_roles',
     ];
 
+
+
     /**
      * Perform any actions required after the model boots.
      *

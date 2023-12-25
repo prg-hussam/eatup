@@ -16,6 +16,8 @@ class SettingDatabaseSeeder extends Seeder
     {
         Setting::setMany([
             'active_theme' => 'Default',
+            'default_country' => 'SA',
+            'default_currency' => 'SAR',
             'supported_locales' => ['en'],
             'app_email' => 'platform@email.com',
             'app_phone_number' => '00962799715191',

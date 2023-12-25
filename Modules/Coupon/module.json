@@ -1,0 +1,9 @@
+{
+    "name": "Coupon",
+    "alias": "coupon",
+    "description": "Coupon management",
+    "priority": 99,
+    "providers": [
+        "Modules\\Coupon\\Providers\\CouponServiceProvider"
+    ]
+}

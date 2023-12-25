@@ -137,6 +137,8 @@ return [
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
 
+    'phone' => 'The :attribute field must be a valid number.',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

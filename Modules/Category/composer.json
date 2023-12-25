@@ -1,0 +1,21 @@
+{
+    "name": "platform/category",
+    "description": "",
+    "authors": [
+        {
+            "name": "Hussam Alnaam",
+            "email": "prg.hussam@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {}
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Category\\": ""
+        }
+    }
+}

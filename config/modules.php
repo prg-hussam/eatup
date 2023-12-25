@@ -211,7 +211,7 @@ return [
     'composer' => [
         'vendor' => 'platform',
         'author' => [
-            'name' => 'Hussam Alnaam',
+            'name' => 'Hussam Al-naami',
             'email' => 'prg.hussam@gmail.com',
         ],
         'composer-output' => false,

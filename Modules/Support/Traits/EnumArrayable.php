@@ -27,4 +27,22 @@ trait EnumArrayable
     {
         return array_combine(self::values(), self::names());
     }
+
+    /**
+     *
+     * @param string $transKey
+     * @return array
+     */
+    public static function toArrayWithTranslations(string $transKey = "enums", array $except = []): array
+    {
+        $cases = [];
+
+        foreach (self::values() as $value) {
+            if (!in_array($value, $except)) {
+                $cases[$value] =  __("{$transKey}.{$value}");
+            }
+        }
+
+        return $cases;
+    }
 }

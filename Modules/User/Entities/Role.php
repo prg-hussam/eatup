@@ -13,9 +13,10 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role as SpatieRole;
 use Illuminate\Support\Facades\Cache;
 use Modules\Support\Traits\HasClearCache;
+
 class Role extends SpatieRole
 {
-    use Translatable,HasClearCache;
+    use Translatable, HasClearCache;
 
     /**
      * The attributes that are translatable.
@@ -34,6 +35,8 @@ class Role extends SpatieRole
         'is_native',
     ];
 
+
+
     /**
      * Perform any actions required after the model boots.
      *
@@ -48,7 +51,6 @@ class Role extends SpatieRole
         });
 
         static::registerClearCacheOnEvents();
-        
     }
 
     /**

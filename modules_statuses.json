@@ -5,5 +5,11 @@
     "Setting": true,
     "User": true,
     "Media": true,
-    "ActivityLog": true
+    "ActivityLog": true,
+    "Meal": true,
+    "Localization": true,
+    "Category": true,
+    "Coupon": true,
+    "Verification": true,
+    "Subscription": true
 }

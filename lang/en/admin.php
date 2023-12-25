@@ -56,7 +56,16 @@ return [
         "pages" => "Pages",
         "media" => "Media Manager",
         "activity_log" => "Activity Log",
-        "activity_log_settings" => "Activity Log"
+        "activity_log_settings" => "Activity Log",
+        'dining_periods' => 'Dining Periods',
+        'localization' => 'Localization',
+        'provinces' => 'Provinces',
+        'cities' => 'Cities',
+        'meals' => 'Meals',
+        'ingredients' => 'Meal Ingredients',
+        'categories' => 'Meal Categories',
+        'coupons' => 'Coupons',
+        'plans' => 'Plans',
     ],
     "media" => [
         "media" => "Media Manager",
@@ -314,5 +323,213 @@ return [
             "password" => "Password",
             "code" => "Code"
         ]
-    ]
+    ],
+
+
+    'dining_periods' => [
+        'dining_periods' => 'Dining Periods',
+        'dining_period' => 'Dining Period',
+        'tabs' => [
+            'general' => 'General',
+            'times' => 'Times',
+            'icon' => 'Icon'
+        ],
+        'table' => [
+            'name' => 'Name',
+            'icon' => 'Icon'
+        ],
+
+        'attributes' => [
+            'name' => 'Name',
+            'is_active' => 'Status',
+            'categories' => 'Categories',
+            'files' => [
+                'icon' => 'Icon'
+            ],
+
+            'times.*.from' => 'From time',
+            'times.*.to' => 'To time',
+        ],
+
+        'times_table' => [
+            'add_time_period' => 'Add new time period',
+            'from' => 'From',
+            'to' => 'To',
+            'status' => 'Status'
+        ]
+    ],
+
+    'ingredients' => [
+        'ingredients' => 'Ingredients',
+        'ingredient' => 'Ingredient',
+        'tabs' => [
+            'general' => 'General',
+            'icon' => 'Icon'
+        ],
+        'table' => [
+            'name' => 'Name',
+            'icon' => 'Icon'
+        ],
+
+        'attributes' => [
+            'name' => 'Name',
+            'is_active' => 'Status',
+            'files' => [
+                'icon' => 'Icon'
+            ],
+
+
+        ],
+    ],
+
+
+    'provinces' => [
+        'provinces' => 'Provinces',
+        'province' => 'Province',
+        'table' => [
+            'name' => 'Name',
+        ],
+
+        'tabs' => [
+            'general' => 'General',
+        ],
+
+        'attributes' => [
+            'name' => 'Name',
+            'is_active' => 'Status',
+        ],
+    ],
+    'cities' => [
+        'cities' => 'Cities',
+        'city' => 'City',
+        'table' => [
+            'name' => 'Name',
+            'province' => 'Province'
+        ],
+
+        'tabs' => [
+            'general' => 'General',
+        ],
+
+        'attributes' => [
+            'name' => 'Name',
+            'province_id' => 'Province',
+            'is_active' => 'Status',
+        ],
+    ],
+    'categories' => [
+        'categories' => 'Categories',
+        'category' => 'Category',
+        'table' => [
+            'name' => 'Name',
+        ],
+
+        'tabs' => [
+            'general' => 'General',
+        ],
+
+        'attributes' => [
+            'name' => 'Name',
+            'is_active' => 'Status',
+        ],
+    ],
+
+    'meals' => [
+        'meals' => 'Meals',
+        'meal' => 'Meal',
+        'tabs' => [
+            'general' => 'General',
+            'calories' => 'Calories',
+            'thumbnail' => 'Thumbnail'
+        ],
+        'table' => [
+            'name' => 'Name',
+            'calories' => 'Calories',
+            'category' => 'Category',
+            'type' => 'Type',
+            'thumbnail' => 'Thumbnail',
+        ],
+
+        'attributes' => [
+            'name' => 'Name',
+            'diningPeriods' => 'Dining Periods',
+            'category_id' => 'Category',
+            'is_active' => 'Status',
+            'ingredients' => 'Ingredients',
+            'meal_type' => 'Type',
+            'unit' => 'Unit',
+            'min_qty' => 'Minimum Quantity',
+            'max_qty' => 'Maximum Quantity',
+            'files.thumbnail' => 'Thumbnail',
+            'carbs_calories_per_unit' => 'Carbs Calories Per unit',
+            'protein_calories_per_unit' => 'Protein Calories Per unit',
+            'fat_calories_per_unit' => 'Fat Calories Per unit',
+            'sugars_calories_per_unit' => 'Sugars Calories Per unit',
+        ],
+
+        'filters' => [
+            'types' => 'Types',
+            'categories' => 'Categories',
+            'dining_periods' => 'Dining Periods'
+        ]
+    ],
+
+
+
+    'coupons' => [
+        'coupons' => 'Coupons',
+        'coupon' => 'Coupon',
+
+        'table' => [
+            'name' => 'Name',
+            'code' => 'Code',
+            "used" => 'Used',
+            'discount' => 'Discount',
+        ],
+
+        'tabs' => [
+            'general' => 'General',
+            'usage_limits' => 'Usage Limits',
+        ],
+
+        'attributes' => [
+            'name' => 'Name',
+            'is_active' => 'Status',
+            'code' => 'Code',
+            'discount_type' => 'Discount type',
+            'value' => 'Value',
+            'start_date' => 'Start date',
+            'end_date' => 'End date',
+
+            'meta' => [
+                'limitations' => [
+                    "per_coupon" => 'Usage Limit Per Coupon',
+                    "per_customer" => 'Usage Limit Per Customer',
+                ]
+            ]
+        ]
+    ],
+
+    'plans' => [
+        'plans' => 'Plans',
+        'plan' => 'Plan',
+        'tabs' => [
+            'general' => 'General',
+        ],
+
+        'table' => [
+            'name' => 'Name',
+            'price' => ' Price',
+            'duration' => 'Duration'
+        ],
+
+        'attributes' => [
+            'name' => 'Name',
+            'price' => 'Price',
+            'duration' => 'Duration',
+            'is_active' => 'Status',
+        ],
+
+        'duration_text' => ':duration Days'
+    ],
 ];

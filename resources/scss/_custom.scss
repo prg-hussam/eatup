@@ -87,3 +87,7 @@ html {
 .multiselect, .multiselect__input, .multiselect__single{
     font-size: 0.8125rem;
 }
+
+.is-invalid .multiselect__tags {
+    border-color: $red !important;
+}

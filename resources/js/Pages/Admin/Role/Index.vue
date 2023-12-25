@@ -4,7 +4,6 @@ import Table from "@/Shared/Admin/Table/Index.vue";
 import DashboardLayout from "@/Layouts/Admin/DashboardLayout.vue";
 import Breadcrumb from "@/Shared/Admin/Breadcrumb.vue";
 import BreadcrumbItem from "@/Shared/Admin/BreadcrumbItem.vue";
-import { trans } from "laravel-vue-i18n";
 
 defineProps({
     records: Object,
@@ -25,11 +24,11 @@ const options = {
         },
         {
             name: "display_name",
-            label: trans("admin.roles.table.name"),
+            label: "admin.roles.table.name",
         },
         {
             name: "created_at",
-            label: trans("global.table.created_at"),
+            label: "global.table.created_at",
         },
     ],
 };

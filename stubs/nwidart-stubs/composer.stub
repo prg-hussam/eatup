@@ -5,10 +5,6 @@
         {
             "name": "$AUTHOR_NAME$",
             "email": "$AUTHOR_EMAIL$"
-        },
-        {
-            "name": "Hussam Alnaame",
-            "email": "prg.hussam@gmail.com"
         }
     ],
     "extra": {

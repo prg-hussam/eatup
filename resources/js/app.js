@@ -33,8 +33,8 @@ createInertiaApp({
             render: () => h(App, props),
         })
             .use(i18nVue, {
-                lang: Fezlee.locale,
-                fallbackLocale: Fezlee.fallbackLocale,
+                lang: Platform.locale,
+                fallbackLocale: Platform.fallbackLocale,
                 resolve: async (lang) => {
                     const langs = import.meta.glob("../../lang/*.json");
                     if (lang.includes("php_")) {

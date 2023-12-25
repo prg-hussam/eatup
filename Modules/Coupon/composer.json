@@ -1,0 +1,15 @@
+{
+    "name": "platform/coupon",
+    "description": "The Platform Coupon Module..",
+    "authors": [
+        {
+            "name": "Hussam Al-naami",
+            "email": "prg.hussam@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\Coupon\\": ""
+        }
+    }
+}

@@ -11,7 +11,7 @@
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
     @inertiaHead
     <script>
-        window.Fezlee = {
+        window.Platform = {
             locale: "{{ locale() }}",
             fallbackLocale: "{{ fallback_locale() }}",
             isRtl: "{{ isRtl() }}"

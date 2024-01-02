@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Plan\Transformers\Api;
+namespace Modules\Subscription\Transformers\Api\V1;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -14,11 +14,13 @@ class PlanResource extends JsonResource
      */
     public function toArray($request)
     {
+
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'is_active' => $this->is_active,
-            'created_at' => dateTimeFormat($this->created_at),
+            'duration' => $this->duration,
+            'pricing' => PlanPriceResource::collection($this->planPrices),
+
         ];
     }
 }

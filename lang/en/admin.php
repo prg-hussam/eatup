@@ -35,12 +35,14 @@ return [
         "dashboard" => "Dashboard",
         "welcome" => "Welcome, :user",
         "enter_your_password_to_unlock_the_screen" => "Enter your password to unlock the screen!",
-        "whats_happening_with_your_account_today" => "Here's what's happening with your account today",
         "please_select" => "Please Select",
         "select_no_results" => "No elements found. Consider changing the search query.",
         "lock_screen" => "Lock screen",
         "unlock" => "Unlock",
-        "total_users" => "Total Users"
+        "total_customers" => "Customers",
+        'total_active_subscriptions' => 'Active Subscriptions',
+        'total_expired_subscriptions' => 'Expired Subscriptions',
+        'total_unpaid_subscriptions' => 'Unpaid Subscriptions',
     ],
     "sidebar" => [
         "my_account" => "My Account",
@@ -66,6 +68,10 @@ return [
         'categories' => 'Meal Categories',
         'coupons' => 'Coupons',
         'plans' => 'Plans',
+        "appearance" => "Appearance",
+        "sliders" => "Sliders",
+        'customers' => 'Customers',
+        'menus' => 'Menus',
     ],
     "media" => [
         "media" => "Media Manager",
@@ -331,7 +337,6 @@ return [
         'dining_period' => 'Dining Period',
         'tabs' => [
             'general' => 'General',
-            'times' => 'Times',
             'icon' => 'Icon'
         ],
         'table' => [
@@ -346,17 +351,7 @@ return [
             'files' => [
                 'icon' => 'Icon'
             ],
-
-            'times.*.from' => 'From time',
-            'times.*.to' => 'To time',
         ],
-
-        'times_table' => [
-            'add_time_period' => 'Add new time period',
-            'from' => 'From',
-            'to' => 'To',
-            'status' => 'Status'
-        ]
     ],
 
     'ingredients' => [
@@ -456,6 +451,7 @@ return [
             'category_id' => 'Category',
             'is_active' => 'Status',
             'ingredients' => 'Ingredients',
+            'menus' => 'Menus',
             'meal_type' => 'Type',
             'unit' => 'Unit',
             'min_qty' => 'Minimum Quantity',
@@ -465,6 +461,7 @@ return [
             'protein_calories_per_unit' => 'Protein Calories Per unit',
             'fat_calories_per_unit' => 'Fat Calories Per unit',
             'sugars_calories_per_unit' => 'Sugars Calories Per unit',
+
         ],
 
         'filters' => [
@@ -515,21 +512,86 @@ return [
         'plan' => 'Plan',
         'tabs' => [
             'general' => 'General',
+            'pricing' => 'Pricing',
         ],
 
         'table' => [
             'name' => 'Name',
-            'price' => ' Price',
             'duration' => 'Duration'
         ],
 
         'attributes' => [
             'name' => 'Name',
-            'price' => 'Price',
             'duration' => 'Duration',
             'is_active' => 'Status',
+            'diningPeriods.*.id' => 'Dining period',
+            'diningPeriods.*.price' => 'Price',
+            'diningPeriods.*.status' => 'Status',
         ],
 
-        'duration_text' => ':duration Days'
+        'duration_text' => ':duration Days',
+        'duration_hint' => ' Specify the plan duration in days',
+        'pricing_table' => [
+            'add_period_price' => 'Add Price',
+            'dining_periods' => 'Dining Periods',
+            'price' => 'Price',
+            'is_active' => 'Status',
+            'price_hint' => 'Determine the total cost of :period for :duration days.'
+        ]
     ],
+
+    "sliders" => [
+        "sliders" => "Sliders",
+        "slider" => "Slider",
+
+        "table" => [
+            "name" => "Name",
+        ],
+
+        "tabs" => [
+            "settings" => "Settings",
+            "slides" => "Slides",
+        ],
+
+        "add_slide" => "Add Slide",
+        "image_slide" => "Image Slide",
+        "attributes" => [
+            "name" => "Name",
+            "slides" => "Slides",
+            "slides.*.position" => "Position",
+            "slides.*.files" => "Files",
+            "slides.*.files.banner" => "Banner",
+        ]
+    ],
+
+    'customers' => [
+        'customers' => 'Customers',
+        'customer' => 'Customer',
+        'table' => [
+            'name' => 'Name',
+            'phone' => 'Phone',
+        ]
+    ],
+
+
+    'menus' => [
+        'menus' => 'Menus',
+        'menu' => 'Menu',
+        'tabs' => [
+            'general' => 'General'
+        ],
+
+
+        'table' => [
+            'name' => 'Name',
+            'is_default' => 'Default',
+        ],
+
+        'attributes' => [
+            'name' => 'Name',
+            'is_active' => 'Status',
+            'is_default' => 'Default'
+        ]
+    ]
+
 ];

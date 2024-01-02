@@ -20,8 +20,17 @@ class AdminSidebarExtender extends BaseSidebarExtender
 
 
                 $item->authorize(
-                    $this->auth->canAny(['admin.dining_periods.index', 'admin.meals.index', 'admin.ingredients.index', 'admin.categories.index'])
+                    $this->auth->canAny(['admin.dining_periods.index', 'admin.menus.index', 'admin.meals.index', 'admin.ingredients.index', 'admin.categories.index'])
                 );
+
+                // Menus Item
+                $item->item('admin.sidebar.menus', function (Item $item) {
+                    $item->weight(4);
+                    $item->route('admin.menus.index');
+                    $item->authorize(
+                        $this->auth->can('admin.menus.index')
+                    );
+                });
 
                 // Meals Item
                 $item->item('admin.sidebar.meals', function (Item $item) {

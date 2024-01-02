@@ -71,16 +71,23 @@ trait HasMedia
      * @param \Modules\Media\Entities\File|null
      * @return array|null
      */
-    protected function fileResource(?File $file = null)
+    protected function fileResource(?File $file = null, bool $withZone = false)
     {
         if ($file) {
-            return [
+            $data = [
                 "id" => $file->id,
                 "filename" => $file->filename,
                 "download_url" => $file->download_url,
                 "url" => $file->url,
+                "extension" => $file->extension,
+                "mime" => $file->mime,
+                "size" => $file->size,
                 "preview_image_url" => $file->preview_image_url,
             ];
+            if ($withZone) {
+                $data["zone"] = $file->pivot->zone;
+            }
+            return $data;
         }
     }
 }

@@ -1,7 +1,7 @@
 {
     "name": "Media",
     "alias": "media",
-    "description": "The Platform Media Module.",
+    "description": "The RTime Media Module.",
     "priority": 80,
     "providers": []
 }

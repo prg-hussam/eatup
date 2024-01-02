@@ -24,10 +24,6 @@ const options = {
             label: "admin.plans.table.name",
         },
         {
-            name: "price",
-            label: "admin.plans.table.price",
-        },
-        {
             name: "duration",
             label: "admin.plans.table.duration",
         },

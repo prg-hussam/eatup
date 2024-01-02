@@ -2,6 +2,7 @@
 import { useForm } from "@inertiajs/vue3";
 import FormTabs from "@/Shared/Admin/FormTabs/Index.vue";
 import GeneralTab from "../Tabs/General.vue";
+import PricingTab from "../Tabs/Pricing.vue";
 import { useToast } from "vue-toastification";
 import { trans } from "laravel-vue-i18n";
 
@@ -15,8 +16,8 @@ const props = defineProps({
 const form = useForm({
     name: props.plan.name || {},
     duration: props.plan.duration,
-    price: props.plan?.price?.amount,
     is_active: props.plan.is_active,
+    prices: props.plan.plan_prices || [],
     _method: props.action == "store" ? "POST" : "PUT",
 });
 
@@ -37,11 +38,13 @@ const submit = () => {
     });
 };
 </script>
+
 <template>
     <FormTabs
         :tabs="tabs"
         :components="{
             General: GeneralTab,
+            Pricing: PricingTab,
         }"
         :form="form"
         :submit="submit"

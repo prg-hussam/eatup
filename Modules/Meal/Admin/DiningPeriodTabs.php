@@ -11,7 +11,6 @@ class DiningPeriodTabs extends Tabs
     public function make()
     {
         $this->add($this->general())
-            ->add($this->times())
             ->add($this->icon());
     }
 
@@ -27,12 +26,6 @@ class DiningPeriodTabs extends Tabs
         });
     }
 
-    private function times()
-    {
-        return tap(new Tab('times', 'Times', __('admin.dining_periods.tabs.times')), function (Tab $tab) {
-            $tab->fields('times', 'times.*');
-        });
-    }
     private function icon()
     {
         return tap(new Tab('icon', 'Icon', __('admin.dining_periods.tabs.icon')), function (Tab $tab) {

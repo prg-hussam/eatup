@@ -21,7 +21,9 @@ class UserServiceProvider extends ServiceProvider
             return;
         }
 
-        TabManager::register('roles', RoleTabs::class);
-        TabManager::register('users', UserTabs::class);
+        if (Platform::inAdminPanel()) {
+            TabManager::register('roles', RoleTabs::class);
+            TabManager::register('users', UserTabs::class);
+        }
     }
 }

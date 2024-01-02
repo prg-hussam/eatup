@@ -1,10 +1,10 @@
 {
-    "name": "platform/media",
-    "description": "The Platform Media Module.",
+    "name": "rtime/media",
+    "description": "The RTime Media Module.",
     "authors": [
         {
-            "name": "Hussam Al-naami",
-            "email": "prg.hussam@gmail.com"
+            "name": "Ayman Alaiwah",
+            "email": "aymanalaiwah.dev@gmail.com"
         }
     ],
     "autoload": {

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Routing\Controller;
 use Modules\Support\Traits\HasCrudActions;
 use Modules\User\Entities\Role;
-use Modules\User\Http\Requests\SaveRoleRequest;
+use Modules\User\Http\Requests\Admin\SaveRoleRequest;
 use Modules\User\Repositories\RoleRepository;
 use Modules\User\Transformers\Admin\RoleResource;
 

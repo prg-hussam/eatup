@@ -17,7 +17,6 @@ class PlanResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'price' => $this->price->format(),
             'duration' => $this->getDurationText(),
             'is_active' => $this->is_active,
             'created_at' => dateTimeFormat($this->created_at),

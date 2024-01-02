@@ -4,9 +4,9 @@ namespace Modules\Meal\Http\Controllers\Admin;
 
 use Illuminate\Routing\Controller;
 use Modules\Meal\Entities\DiningPeriod;
+use Modules\Support\Traits\HasCrudActions;
 use Modules\Meal\Http\Requests\Admin\SaveDiningPeriodRequest;
 use Modules\Meal\Transformers\Admin\DiningPeriodResource;
-use Modules\Support\Traits\HasCrudActions;
 
 class DiningPeriodController extends Controller
 {
@@ -81,6 +81,6 @@ class DiningPeriodController extends Controller
      * @var array<int, string>
      */
     protected array $fillableActivityLog = [
-        "attributes" => ["name", "is_active"],
+        "attributes" => ["name", "is_active", 'categories', 'files'],
     ];
 }

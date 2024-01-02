@@ -23,10 +23,15 @@ class SavePlanRequest extends Request
     public function rules()
     {
 
+
+
         return [
             ...$this->getTranslationRules(['name' => 'required|min:3']),
-            'duration' => 'required|numeric|min:1|max:100|' . $this->uniqueRule('plans', 'admin.plans.update'),
-            'price' => 'required|numeric|min:1|max:9999',
+            'duration' => 'required|numeric|min:1|max:365|' . $this->uniqueRule('plans', 'admin.plans.update'),
+            'prices' => 'required|array',
+            'prices.*.dining_period_id' => 'required',
+            'prices.*.price' => 'required|numeric|min:1|max:999999',
+            'prices.*.is_active' => 'required|boolean',
             "is_active" => "required|boolean",
         ];
     }

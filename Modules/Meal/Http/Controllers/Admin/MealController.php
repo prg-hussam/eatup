@@ -10,6 +10,7 @@ use Modules\Meal\Enums\MealType;
 use Modules\Support\Traits\HasCrudActions;
 use Modules\Meal\Transformers\Admin\MealResource;
 use Modules\Meal\Http\Requests\Admin\SaveMealRequest;
+use Modules\Meal\Transformers\Admin\ShowMealResource;
 
 class MealController extends Controller
 {
@@ -48,7 +49,10 @@ class MealController extends Controller
      *
      * @var array|string
      */
-    protected array|string $resource = MealResource::class;
+    protected array|string $resource = [
+        'index' => MealResource::class,
+        'show' => ShowMealResource::class,
+    ];
 
     /**
      * Pipeline through
@@ -73,7 +77,7 @@ class MealController extends Controller
      * @var array
      */
     protected $with = [
-        'show' => ['ingredients:id,name', 'diningPeriods:id,name'],
+        'show' => ['ingredients:id,name', 'diningPeriods:id,name', 'menus:id,name'],
         'index' => ['category', 'files']
     ];
 

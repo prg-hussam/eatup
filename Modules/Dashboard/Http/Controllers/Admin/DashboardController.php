@@ -2,10 +2,13 @@
 
 namespace Modules\Dashboard\Http\Controllers\Admin;
 
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Routing\Controller;
 use Inertia\Inertia;
 use Modules\User\Entities\User;
+use Illuminate\Routing\Controller;
+use Modules\User\Entities\Customer;
+use Modules\Core\Enums\PaymentStatus;
+use Illuminate\Contracts\Support\Renderable;
+use Modules\Subscription\Entities\Subscription;
 
 class DashboardController extends Controller
 {
@@ -16,19 +19,27 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $user = auth()->user();
         return Inertia::render('Admin/Dashboard/Index', [
-            'totalUsers' => $this->hasAccess('admin.users.index') ? User::withoutGlobalScope('active')->count() : 0,
+            "totals" => $this->getTotals($user),
         ]);
     }
 
+
     /**
-     * Determin if user has access or not
+     * Get totals
      *
-     * @param string $permission
-     * @return bool
+     * @param \Modules\User\Entities\User
+     * @return array
      */
-    private function hasAccess(string $permission): bool
+    public function getTotals(User $user): array
     {
-        return auth()->user()->can($permission) ? true : false;
+        return [
+            'customers' => $user->can('admin.customers.index') ? Customer::withoutGlobalScope('active')->count() : 0,
+            'activeSubscriptions' => $user->can('admin.subscriptions.index') ? Subscription::where('ends_at', '>=', now())->where('payment_status', PaymentStatus::Paid)->count() : 0,
+            'expiredSubscriptions' => $user->can('admin.subscriptions.index') ? Subscription::where('ends_at', '<=', now())->where('payment_status', PaymentStatus::Paid)->count() : 0,
+            'unpaidSubscriptions' => $user->can('admin.subscriptions.index') ? Subscription::where('payment_status', PaymentStatus::Unpaid)->count() : 0,
+
+        ];
     }
 }

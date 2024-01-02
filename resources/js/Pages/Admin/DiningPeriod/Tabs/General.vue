@@ -7,7 +7,7 @@ import MultiSelect from "@/Shared/Form/MultiSelect.vue";
 defineProps({
     form: Object,
     tab: Object,
-    diningPeriod: Object,
+    entity: Object,
     formLocale: String,
 });
 const { supportedLocales } = useGeneral();

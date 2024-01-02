@@ -12,6 +12,7 @@ use Modules\Support\Eloquent\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class DiningPeriod extends Model
 {
@@ -33,7 +34,6 @@ class DiningPeriod extends Model
 
     protected $fillable = [
         'name',
-        'times',
         'position',
         'is_active'
     ];
@@ -45,8 +45,9 @@ class DiningPeriod extends Model
      */
     protected $casts = [
         'is_active' => 'boolean',
-        'times' => 'array',
     ];
+
+    protected $with = ['files'];
 
     /**
      * The accessors to append to the model's array form.
@@ -67,9 +68,9 @@ class DiningPeriod extends Model
                 $diningPeriod->saveRelations(request()->all());
             }
         });
-        if (!Platform::inAdminPanel()) {
-            static::addActiveGlobalScope();
-        }
+
+
+        static::addActiveGlobalScope();
     }
 
 
@@ -83,6 +84,17 @@ class DiningPeriod extends Model
     {
 
         $this->categories()->sync(\Arr::get($attributes, 'categories', []));
+    }
+
+
+    /**
+     * Get the times for the dining period.
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function times(): HasMany
+    {
+        return $this->hasMany(DiningPeriodTime::class);
     }
 
     /**
@@ -113,8 +125,6 @@ class DiningPeriod extends Model
     {
         return $this->belongsToMany(Meal::class);
     }
-
-
 
     /**
      * Get a list of all dining periods.

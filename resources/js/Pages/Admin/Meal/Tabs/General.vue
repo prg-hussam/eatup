@@ -72,6 +72,15 @@ const diningPeriodsHandler = (categoryId) => {
             asterisk
             multiple
         />
+        <MultiSelect
+            :label="$t('admin.meals.attributes.menus')"
+            :error="form.errors.menus"
+            v-model="form.menus"
+            :options="tab.data.menus"
+            name="menus"
+            asterisk
+            multiple
+        />
 
         <MultiSelect
             :label="$t('admin.meals.attributes.ingredients')"

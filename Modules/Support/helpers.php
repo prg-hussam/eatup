@@ -7,6 +7,20 @@ use Modules\Support\RTLDetector;
 use Illuminate\Support\Facades\Cache;
 use Modules\Media\Entities\File;
 
+
+if (!function_exists('generateUniqueId')) {
+    /**
+     * Generate unique Id
+     *
+     * @return array
+     */
+    function generateUniqueId(string $prefix): string
+    {
+        return mb_strtoupper(config('app.prefix_reference_no') . $prefix . substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 10));
+    }
+}
+
+
 if (!function_exists('locale')) {
     /**
      * Get current locale.

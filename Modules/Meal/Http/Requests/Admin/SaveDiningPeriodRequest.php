@@ -28,10 +28,6 @@ class SaveDiningPeriodRequest extends Request
             "is_active" => "required|boolean",
             'categories' => 'required|array',
             'files.icon' => 'required',
-            'times' => 'required|array',
-            'times.*.from' => 'required',
-            'times.*.to' => 'required|after:times.*.from',
-            'times.*.is_active' => 'required|boolean',
 
         ];
     }

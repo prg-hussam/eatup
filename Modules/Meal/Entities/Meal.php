@@ -105,9 +105,9 @@ class Meal extends Model
      */
     public function saveRelations($attributes = [])
     {
-
         $this->ingredients()->sync(\Arr::get($attributes, 'ingredients', []));
         $this->diningPeriods()->sync(\Arr::get($attributes, 'diningPeriods', []));
+        $this->menus()->sync(\Arr::get($attributes, 'menus', []));
     }
 
 
@@ -152,5 +152,14 @@ class Meal extends Model
         return Attribute::make(
             get: fn () => $this->fileResource($this->files->where('pivot.zone', 'thumbnail')->first())
         );
+    }
+
+
+    /**
+     * The menus that belong to the meal.
+     */
+    public function menus(): BelongsToMany
+    {
+        return $this->belongsToMany(Menu::class);
     }
 }

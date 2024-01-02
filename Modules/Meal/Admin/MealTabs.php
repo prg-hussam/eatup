@@ -6,6 +6,7 @@ use Modules\Category\Entities\Category;
 use Modules\Dashboard\Ui\Tabs\Tab;
 use Modules\Dashboard\Ui\Tabs\Tabs;
 use Modules\Meal\Entities\Ingredient;
+use Modules\Meal\Entities\Menu;
 use Modules\Meal\Enums\MealType;
 use Modules\Meal\Enums\MealUnit;
 
@@ -20,15 +21,17 @@ class MealTabs extends Tabs
 
     private function general()
     {
+
         return tap(new Tab('general', 'General', __('admin.meals.tabs.general')), function (Tab $tab) {
             $tab->active()
                 ->translationFields('name')
-                ->fields(['name', 'type', 'unit', 'min_qty', 'max_qty', 'is_active', 'ingredients', 'categories', 'diningPeriods'])
+                ->fields(['name', 'type', 'unit', 'min_qty', 'menus', 'max_qty', 'is_active', 'ingredients', 'categories', 'diningPeriods'])
                 ->data([
                     'types' => MealType::toArrayWithTranslations(),
                     'units' => MealUnit::toArrayWithTranslations(),
                     'categories' => Category::list(),
-                    'ingredients' => Ingredient::list()
+                    'ingredients' => Ingredient::list(),
+                    'menus' => Menu::list()
                 ]);
         });
     }

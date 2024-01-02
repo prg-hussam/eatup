@@ -2,22 +2,19 @@
 
 namespace Modules\User\Entities;
 
-use App\Platform;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Modules\Meal\Entities\Ingredient;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Modules\Subscription\Eloquent\HasSubscription;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Modules\Meal\Entities\Meal;
-
-use function PHPUnit\Framework\isNull;
 
 class Customer extends Authenticatable
 {
 
-    //TODO:: add soft delete
-    use HasApiTokens, Notifiable;
+    use HasApiTokens, Notifiable, SoftDeletes, HasSubscription;
 
     /**
      * The attributes that are mass assignable.
@@ -96,8 +93,8 @@ class Customer extends Authenticatable
     public function phone(): Attribute
     {
         return Attribute::make(
-            get: fn ($phone) => phone($phone, setting('default_country'))->formatNational(),
-            set: fn ($phone) => phone($phone, setting('default_country'))->formatE164(),
+            get: fn ($phone) =>  str_replace(' ', '', phone($phone, setting('default_country'))->formatNational()),
+            set: fn ($phone) => phone($phone, setting('default_country'))->formatNational(),
         );
     }
 }

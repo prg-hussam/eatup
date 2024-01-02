@@ -107,6 +107,13 @@ const filterForm = reactive({
                         }),
                     },
                     {
+                        key: 'show',
+                        label: $t(`resource.show`, {
+                            resource: $t('admin.meals.meal'),
+                        }),
+                        visitModal: true,
+                    },
+                    {
                         key: 'destroy',
                         label: $t(`resource.delete`, {
                             resource: $t('admin.meals.meal'),

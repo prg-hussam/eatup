@@ -58,6 +58,23 @@ class PlanController extends Controller
         ]
     ];
 
+    /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    protected $with = [
+        'show' => ['planPrices'],
+
+    ];
+
+    /**
+     * Determine if a edit action load relationship
+     *
+     * @var bool
+     */
+    protected bool $loadRelationsOnEdit = true;
+
 
     /**
      * The attributes that are mass assignable.

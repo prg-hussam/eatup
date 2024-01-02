@@ -5,7 +5,7 @@ namespace Modules\User\Http\Controllers\Admin;
 use Illuminate\Routing\Controller;
 use Modules\User\Entities\Role;
 use Modules\User\Entities\User;
-use Modules\User\Http\Requests\SaveUserRequest;
+use Modules\User\Http\Requests\Admin\SaveUserRequest;
 use Modules\Support\Traits\HasCrudActions;
 use Modules\User\Transformers\Admin\UserResource;
 

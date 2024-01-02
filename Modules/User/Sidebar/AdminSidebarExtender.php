@@ -11,6 +11,18 @@ class AdminSidebarExtender extends BaseSidebarExtender
 {
     public function extend(Menu $menu)
     {
+        $menu->group('admin.sidebar.menu', function (Group $group) {
+            $group->item('admin.sidebar.customers', function (Item $item) {
+                $item->icon('bx bxs-star');
+                $item->weight(1);
+                $item->route('admin.customers.index');
+                $item->icon('mdi mdi-account-group');
+                $item->authorize(
+                    $this->auth->can('admin.customers.index')
+                );
+            });
+        });
+
         $menu->group('admin.sidebar.system', function (Group $group) {
             $group->item('admin.sidebar.users', function (Item $item) {
                 $item->weight(5);

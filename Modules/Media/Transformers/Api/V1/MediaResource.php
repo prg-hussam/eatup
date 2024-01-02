@@ -16,7 +16,11 @@ class MediaResource extends JsonResource
     {
         return !is_null($request)
             ? [
+                "id" => $this['id'],
                 "url" => $this['url'],
+                "extension" => $this['extension'],
+                "mime" => $this['mime'],
+                "preview_image_url" => $this['preview_image_url'],
             ]
             : null;
     }

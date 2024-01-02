@@ -23,7 +23,7 @@ class DiningPeriodController extends Controller
         return ApiResponse::success([
             "records" => DiningPeriodResource::collection(
                 app(Pipeline::class)
-                    ->send(DiningPeriod::with('files'))
+                    ->send(DiningPeriod::query())
                     ->thenReturn()
                     ->latest()
                     ->skip(request()->get('skip', 0))

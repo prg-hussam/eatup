@@ -3,11 +3,11 @@ import { Head } from "@inertiajs/vue3";
 import DashboardLayout from "@/Layouts/Admin/DashboardLayout.vue";
 import Breadcrumb from "@/Shared/Admin/Breadcrumb.vue";
 import Welcome from "@/Layouts/Admin/Partials/Welcome.vue";
-import Analytics from "@/Widgets/BuildIn/Analytics.vue";
-import useAuth from "@/Uses/auth";
+import Totals from "./Partials/Totals.vue";
 
-defineProps({ totalUsers: Number });
-const { can } = useAuth();
+defineProps({
+    totals: Object,
+});
 </script>
 
 <template>
@@ -18,14 +18,7 @@ const { can } = useAuth();
         </template>
         <template #content>
             <Welcome />
-            <div class="row">
-                <Analytics
-                    :visible="can('admin.users.index')"
-                    :title="$t('admin.dashboard.total_users')"
-                    :value="totalUsers"
-                    iconClass="mdi mdi-account-outline"
-                />
-            </div>
+            <Totals :totals="totals" />
         </template>
     </DashboardLayout>
 </template>

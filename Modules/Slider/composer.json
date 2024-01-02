@@ -1,0 +1,21 @@
+{
+    "name": "platform/slider",
+    "description": "",
+    "authors": [
+        {
+            "name": "Hussam Al-naami",
+            "email": "prg.hussam@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {}
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Slider\\": ""
+        }
+    }
+}

@@ -26,6 +26,8 @@ return new class extends Migration
             $table->boolean('is_profile_completed')->default(false);
             $table->boolean('is_active')->default(false);
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

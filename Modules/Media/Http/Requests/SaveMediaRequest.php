@@ -20,8 +20,6 @@ class SaveMediaRequest extends Request
      */
     public function rules()
     {
-        $user = $this->user();
-
         return [
             "name" => "required|max:200",
         ];

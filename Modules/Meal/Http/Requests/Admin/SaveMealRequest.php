@@ -41,6 +41,13 @@ class SaveMealRequest extends Request
                     ->where("is_active", true)
                     ->whereNull("deleted_at")
             ],
+            "menus" => [
+                "required",
+                'array',
+                Rule::exists("menus", "id")
+                    ->where("is_active", true)
+                    ->whereNull("deleted_at")
+            ],
             "diningPeriods" => [
                 "required",
                 'array',

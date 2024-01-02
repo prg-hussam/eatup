@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->json('name');
             $table->unsignedInteger('duration')->unique();
-            $table->unsignedDecimal('price', 18, 4);
             $table->integer('position')->unsigned()->nullable();
             $table->boolean('is_active')->default(false);
             $table->timestamps();

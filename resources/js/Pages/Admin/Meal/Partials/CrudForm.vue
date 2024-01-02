@@ -27,6 +27,10 @@ const form = useForm({
     fat_calories_per_unit: props.meal.fat_calories_per_unit,
     sugars_calories_per_unit: props.meal.sugars_calories_per_unit,
     is_active: props.meal.is_active,
+    menus:
+        typeof props.meal.menus == "object"
+            ? props.meal.menus.map((menu) => menu.id.toString())
+            : null,
     ingredients:
         typeof props.meal.ingredients == "object"
             ? props.meal.ingredients.map((ingredient) =>

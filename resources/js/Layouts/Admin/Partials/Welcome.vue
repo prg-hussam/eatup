@@ -11,13 +11,6 @@ const { user } = useAuth();
                     <h4 class="fs-16 mb-1">
                         {{ $t("admin.dashboard.welcome", { user: user.name }) }}
                     </h4>
-                    <p class="text-muted mb-0">
-                        {{
-                            $t(
-                                "admin.dashboard.whats_happening_with_your_account_today"
-                            )
-                        }}
-                    </p>
                 </div>
             </div>
         </div>

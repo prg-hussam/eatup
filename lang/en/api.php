@@ -29,5 +29,12 @@ return [
         'customer_created_successfully' => 'Congratulations! Your account has been created successfully. Welcome to :app_name!',
         'account_inactive' => 'Your account is currently inactive. Please contact support for assistance.',
         'customer_logged_in_successfully' => 'Welcome back! You have successfully logged in to your account.'
+    ],
+
+
+    'subscribe' => [
+        'attributes' => [
+            'plan_id' => 'Plan'
+        ]
     ]
 ];

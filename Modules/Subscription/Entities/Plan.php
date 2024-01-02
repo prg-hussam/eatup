@@ -2,12 +2,11 @@
 
 namespace Modules\Subscription\Entities;
 
-
-use Modules\Support\Money;
+use App\Platform;
 use Modules\Support\Eloquent\Model;
 use Modules\Support\Eloquent\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Plan extends Model
 {
@@ -29,7 +28,6 @@ class Plan extends Model
     protected $fillable = [
         'name',
         'duration',
-        'price',
         'position',
         'is_active'
     ];
@@ -51,8 +49,30 @@ class Plan extends Model
      */
     protected static function booted()
     {
+
+        static::saved(function (Plan $meal) {
+            if (Platform::inAdminPanel() && !empty(request()->all())) {
+                $meal->saveRelations(request()->all());
+            }
+        });
+
         static::addActiveGlobalScope();
     }
+
+
+    /**
+     * Save associated relations for the meal.
+     *
+     * @param array $attributes
+     * @return void
+     */
+    public function saveRelations($attributes = [])
+    {
+
+        $this->planPrices()->delete();
+        $this->planPrices()->createMany(\Arr::get($attributes, 'prices', []));
+    }
+
 
     public function getDurationText()
     {
@@ -61,15 +81,14 @@ class Plan extends Model
         ]);
     }
 
+
     /**
-     * Get plan price
-     *
-     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     * Get the prices for the plan.
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function price(): Attribute
+    public function planPrices(): HasMany
     {
-        return Attribute::make(
-            get: fn ($value) => Money::inDefaultCurrency($value)
-        );
+        return $this->hasMany(PlanPrice::class);
     }
 }

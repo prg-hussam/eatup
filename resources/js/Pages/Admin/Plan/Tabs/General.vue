@@ -34,17 +34,10 @@ const { supportedLocales } = useGeneral();
         >
             <template #hint>
                 <div class="form-text text-info">
-                    Specify the plan duration in days
+                    {{ $t("admin.plans.duration_hint") }}
                 </div>
             </template>
         </Input>
-        <Input
-            asterisk
-            v-model="form.price"
-            :error="form.errors.price"
-            :label="$t('admin.plans.attributes.price')"
-            name="price"
-        />
 
         <Checkbox
             class="mt-3"

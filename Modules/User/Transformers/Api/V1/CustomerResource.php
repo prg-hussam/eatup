@@ -19,7 +19,7 @@ class CustomerResource extends JsonResource
         // $this->load([
 
         // ]);
-
+        dd($this->subscription);
         return [
             'id' => $this->id,
             'name' => $this->name,

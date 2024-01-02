@@ -15,11 +15,11 @@ class DiningPeriodResource extends JsonResource
      */
     public function toArray($request)
     {
-
+        $this->load('times', 'files');
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'time_slots' => array_filter($this->times, fn ($item) =>  $item['is_active'] === true),
+            'times' => DiningPeriodTimeResource::collection($this->times),
             'icon' => new MediaResource($this->icon),
         ];
     }

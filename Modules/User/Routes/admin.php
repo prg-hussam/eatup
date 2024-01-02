@@ -11,6 +11,7 @@
 |
 */
 
+use Modules\User\Http\Controllers\Admin\CustomerController;
 use Modules\User\Http\Controllers\Admin\LockScreenController;
 use Modules\User\Http\Controllers\Admin\RoleController;
 use Modules\User\Http\Controllers\Admin\UserController;
@@ -61,4 +62,14 @@ Route::controller(RoleController::class)
         Route::get('/{id}/edit', 'edit')->name('edit')->middleware('can:admin.roles.edit');
         Route::put('/{id}/edit', 'update')->name('update')->middleware('can:admin.roles.edit');
         Route::delete('/{ids}', 'destroy')->name('destroy')->middleware('can:admin.roles.destroy');
+    });
+
+
+Route::controller(CustomerController::class)
+    ->prefix('customers')
+    ->name('customers.')
+    ->group(function () {
+        Route::get('/', 'index')->name('index')->middleware('can:admin.customers.index');
+        Route::get('{id}/edit', 'edit')->name('edit')->middleware('can:admin.customers.edit');
+        Route::get('{id}/show', 'show')->name('show')->middleware('can:admin.customers.show');
     });

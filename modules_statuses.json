@@ -11,5 +11,7 @@
     "Category": true,
     "Coupon": true,
     "Verification": true,
-    "Subscription": true
+    "Subscription": true,
+    "Slider": true,
+    "Payment": true
 }

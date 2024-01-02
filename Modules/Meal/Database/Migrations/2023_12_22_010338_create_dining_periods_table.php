@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('dining_periods', function (Blueprint $table) {
             $table->id();
             $table->json('name');
-            $table->json('times');
             $table->integer('position')->unsigned()->nullable();
             $table->boolean('is_active')->default(false);
             $table->timestamps();
